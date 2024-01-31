@@ -8,6 +8,7 @@
  * Which is which?
  */
 
+// Type A is a discriminated union.
 type A =
   | {
       type: "a";
@@ -22,12 +23,20 @@ type A =
       c: string;
     };
 
+// Type B is a union
 type B = "a" | "b" | "c";
 
+// Type C is an enum
 enum C {
   A = "a",
   B = "b",
   C = "c",
+}
+
+function getUnions(result: A) {
+  if (result.type === "c") {
+    return result.c;
+  }
 }
 
 export {};
